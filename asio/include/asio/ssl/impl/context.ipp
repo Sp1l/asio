@@ -352,7 +352,7 @@ context::~context()
         static_cast<detail::password_callback_base*>(
             cb_userdata);
       delete callback;
-#if (OPENSSL_VERSION_NUMBER >= 0x10100000L) && !defined(LIBRESSL_VERSION_NUMBER)
+#if (OPENSSL_VERSION_NUMBER >= 0x10100000L)
       ::SSL_CTX_set_default_passwd_cb_userdata(handle_, 0);
 #else // (OPENSSL_VERSION_NUMBER >= 0x10100000L)
       handle_->default_passwd_callback_userdata = 0;
