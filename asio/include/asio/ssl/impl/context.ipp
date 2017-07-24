@@ -132,7 +132,7 @@ context::context(context::method m)
 #endif // defined(OPENSSL_NO_SSL3)
 
     // TLS v1.0.
-#if (OPENSSL_VERSION_NUMBER >= 0x10100000L) && !defined(LIBRESSL_VERSION_NUMBER)
+#if (OPENSSL_VERSION_NUMBER >= 0x10100000L)
   case context::tlsv1:
     handle_ = ::SSL_CTX_new(::TLS_method());
     if (handle_)
@@ -170,7 +170,7 @@ context::context(context::method m)
 #endif // (OPENSSL_VERSION_NUMBER >= 0x10100000L)
 
     // TLS v1.1.
-#if (OPENSSL_VERSION_NUMBER >= 0x10100000L) && !defined(LIBRESSL_VERSION_NUMBER)
+#if (OPENSSL_VERSION_NUMBER >= 0x10100000L)
   case context::tlsv11:
     handle_ = ::SSL_CTX_new(::TLS_method());
     if (handle_)
@@ -215,7 +215,7 @@ context::context(context::method m)
 #endif // defined(SSL_TXT_TLSV1_1)
 
     // TLS v1.2.
-#if (OPENSSL_VERSION_NUMBER >= 0x10100000L) && !defined(LIBRESSL_VERSION_NUMBER)
+#if (OPENSSL_VERSION_NUMBER >= 0x10100000L)
   case context::tlsv12:
     handle_ = ::SSL_CTX_new(::TLS_method());
     if (handle_)
@@ -271,7 +271,7 @@ context::context(context::method m)
     break;
 
     // Any supported TLS version.
-#if (OPENSSL_VERSION_NUMBER >= 0x10100000L) && !defined(LIBRESSL_VERSION_NUMBER)
+#if (OPENSSL_VERSION_NUMBER >= 0x10100000L)
   case context::tls:
     handle_ = ::SSL_CTX_new(::TLS_method());
     if (handle_)
